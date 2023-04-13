@@ -11,7 +11,7 @@ options:
     description:
       - IPs or ports to listen.
       - They can include other directives like 'ssl' or 'default_server'.
-      - https://nginx.org/en/docs/http/ngx_http_core_module.html#listen
+      - Nginx documentation: https://nginx.org/en/docs/http/ngx_http_core_module.html#listen
     type: list
     elements: str
     default: [ 443 ssl ]
@@ -25,18 +25,18 @@ options:
     description:
       - Server name directive.
       - If not passed, it will equal to name.
-      - https://nginx.org/en/docs/http/ngx_http_core_module.html#server_name
+      - Nginx documentation: https://nginx.org/en/docs/http/ngx_http_core_module.html#server_name
     type: str
   sslcert:
     description:
       - Path to the SSL certificate to use, if any.
-      - https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_certificate
+      - Nginx documentation: https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_certificate
     type: str
     aliases: [ ssl_certificate ]
   sslkey:
     description:
       - Path to the SSL certificate secret key, if any
-      - https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_certificate_key
+      - Nginx documentation: https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_certificate_key
     type: str
     aliases: [ ssl_certificate_key ]
   include_letsencrypt:
@@ -47,7 +47,7 @@ options:
   letsencrypt_options:
     description:
       - Path to the SSL options from Letsencrypt.
-      - https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/_internal/tls_configs/options-ssl-nginx.conf
+      - A version of then can be found here: https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/_internal/tls_configs/options-ssl-nginx.conf
     type: str
     default: /etc/letsencrypt/options-ssl-nginx.conf
   log_name:
@@ -63,30 +63,30 @@ options:
     description:
       - Path to the access log file.
       - It will be set automatically if log_name is passed to {log_dir}/{log_name}.access.log
-      - https://nginx.org/en/docs/http/ngx_http_log_module.html#access_log
+      - Nginx documentation: https://nginx.org/en/docs/http/ngx_http_log_module.html#access_log
     type: str
   error_log:
     description:
       - Path to the error log file.
       - It will be set automatically if log_name is passed to {log_dir}/{log_name}.error.log
-      - https://nginx.org/en/docs/ngx_core_module.html#error_log
+      - Nginx documentation: https://nginx.org/en/docs/ngx_core_module.html#error_log
     type: str
   proxy_pass:
     description:
       - Proxied server.
-      - https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass
+      - Nginx documentation: https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass
     type: str
     required: yes
   proxy_http_version:
     description:
       - HTTP protocol version for proxying.
-      - https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_http_version
+      - Nginx documentation: https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_http_version
     type: str
     default: 1.1
   proxy_headers:
     description:
       - Request header passed to the proxied server.
-      - https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_set_header
+      - Nginx documentation: https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_set_header
     type: dict
     default:
       'Host': '$host',
@@ -104,19 +104,19 @@ options:
     description:
       - Text returned if wanted to stop processing and return a code
       - Either redirect_to or status_text required if wanted to redirect
-      - https://nginx.org/en/docs/http/ngx_http_rewrite_module.html#return
+      - Nginx documentation: https://nginx.org/en/docs/http/ngx_http_rewrite_module.html#return
     type: int
   status_text:
     description:
       - HTTP code if wanted to stop processing and return a code
       - Either redirect_to or status_text required if wanted to redirect
-      - https://nginx.org/en/docs/http/ngx_http_rewrite_module.html#return
+      - Nginx documentation: https://nginx.org/en/docs/http/ngx_http_rewrite_module.html#return
     type: str
   allowed_ips:
     description:
       - List of IPs allowed.
       - If any passed, any other IP will be denied
-      - https://nginx.org/en/docs/http/ngx_http_access_module.html
+      - Nginx documentation: https://nginx.org/en/docs/http/ngx_http_access_module.html
     type: list
     elements: str
   state:
